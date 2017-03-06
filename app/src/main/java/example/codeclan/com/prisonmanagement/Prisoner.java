@@ -1,24 +1,41 @@
 package example.codeclan.com.prisonmanagement;
 
-import Person;
-
 /**
  * Created by user on 04/03/2017.
  */
 
 public class Prisoner extends Person {
 
-    Prison prison;
 
-    Boolean isHungry = false;
+    private String name;
+    private SecurityLevel securityLevel;
 
-    eat() {
-        isHungry = false;
+    public Prisoner (String name, SecurityLevel securityLevel) {
+        this.name = name;
+        this.securityLevel = securityLevel;
     }
 
-
-    prison.feedPrisoners()
-
-
+    public String speak() {
+        return super.speak() + "does anyone have a spoon?";
     }
+
+    public String getName() {
+        return this.name;
+    }
+
+//    Prison prison;
+//
+//    Boolean isHungry = false;
+//
+//    eat() {
+//        isHungry = false;
+//    }
+//
+//
+//    prison.feedPrisoners()
+//
+//
+//    }
+
+
 }

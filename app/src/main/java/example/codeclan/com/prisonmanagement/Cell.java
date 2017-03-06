@@ -8,23 +8,31 @@ import java.util.ArrayList;
 
 public class Cell {
 
+    private String name;
     private ArrayList<Prisoner> prisoners;
 
-    public Cell() {
-        prisoners = new ArrayList<Prisoner>();
-    }
-
-    feedPrisoners() {
-        for(prisoner in prisoners) {
-            prisoner.eat();
-        }
-    }
-
-    addPrisoners() {
+    public Cell(String name, ArrayList<Prisoner> prisoners) {
+        this.name = name;
+        this.prisoners = new ArrayList<Prisoner>();
 
     }
 
-    removePrisoners() {
+//    feedPrisoners() {
+//        for(prisoner in prisoners) {
+//            prisoner.eat();
+//        }
+//    }
 
+    public int countPrisoners() {
+        return this.prisoners.size();
+    }
+
+    public void addPrisoners(Prisoner prisoner) {
+        this.prisoners.add(prisoner);
+    }
+
+    public void removePrisoners() {
+        this.prisoners.remove(0);
     }
 }
+

@@ -5,4 +5,8 @@ package example.codeclan.com.prisonmanagement;
  */
 
 public abstract class Person {
+
+    public String speak() {
+        return "Hello...";
+    }
 }
