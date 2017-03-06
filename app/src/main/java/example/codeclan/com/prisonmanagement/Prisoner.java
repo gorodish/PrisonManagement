@@ -9,10 +9,13 @@ public class Prisoner extends Person {
 
     private String name;
     private SecurityLevel securityLevel;
+    private boolean isHungry;
 
-    public Prisoner (String name, SecurityLevel securityLevel) {
+    public Prisoner (String name, SecurityLevel securityLevel, Boolean isHungry) {
         this.name = name;
         this.securityLevel = securityLevel;
+        this.isHungry = true;
+
     }
 
     public String speak() {
@@ -23,19 +26,7 @@ public class Prisoner extends Person {
         return this.name;
     }
 
-//    Prison prison;
-//
-//    Boolean isHungry = false;
-//
-//    eat() {
-//        isHungry = false;
-//    }
-//
-//
-//    prison.feedPrisoners()
-//
-//
-//    }
-
-
+    public void eat() {
+        this.isHungry = false;
+    }
 }

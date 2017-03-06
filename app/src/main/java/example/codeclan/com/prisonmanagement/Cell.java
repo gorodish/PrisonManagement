@@ -17,12 +17,6 @@ public class Cell {
 
     }
 
-//    feedPrisoners() {
-//        for(prisoner in prisoners) {
-//            prisoner.eat();
-//        }
-//    }
-
     public int countPrisoners() {
         return this.prisoners.size();
     }
@@ -33,6 +27,12 @@ public class Cell {
 
     public void removePrisoners() {
         this.prisoners.remove(0);
+    }
+
+    private void feedPrisoners() {
+        for(Prisoner prisoner : prisoners) {
+            prisoner.eat();
+        }
     }
 }
 

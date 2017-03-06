@@ -53,4 +53,9 @@ public class TestCell {
         cell.removePrisoners();
         assertEquals(3, cell.countPrisoners());
     }
+
+    @Test
+    public void testCanFeedPrisoners() {
+
+    }
 }

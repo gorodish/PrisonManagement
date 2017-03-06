@@ -15,8 +15,7 @@ public class TestPrisoner {
 
     @Before
     public void before() {
-        prisoner = new Prisoner("Jodie 'Acid Bath' Garden", SecurityLevel.LOW);
-
+        prisoner = new Prisoner("Jodie 'Acid Bath' Garden", SecurityLevel.LOW, false);
     }
 
     @Test
