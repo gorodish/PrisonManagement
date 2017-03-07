@@ -23,11 +23,11 @@ public class TestCell {
     @Before
     public void before() {
         prisoners = new ArrayList<Prisoner>();
-        prisoner1 = new Prisoner("Murray 'Fingers' McQuarrie", SecurityLevel.HIGH);
-        prisoner2 = new Prisoner("Daniel 'The Strangler' McDonald", SecurityLevel.LOW);
-        prisoner3 = new Prisoner("Ryan 'Knuckles' Sinclair", SecurityLevel.LOW);
-        prisoner4 = new Prisoner("Ellen 'Cat Burglar' Grafton", SecurityLevel.MEDIUM);
-        cell = new Cell("Abandon Hope Cooler", prisoners);
+        prisoner1 = new Prisoner("Murray 'Fingers' McQuarrie", SecurityLevel.HIGH, true);
+        prisoner2 = new Prisoner("Daniel 'The Strangler' McDonald", SecurityLevel.LOW, true);
+        prisoner3 = new Prisoner("Ryan 'Knuckles' Sinclair", SecurityLevel.LOW, true);
+        prisoner4 = new Prisoner("Ellen 'Cat Burglar' Grafton", SecurityLevel.MEDIUM, false);
+        cell = new Cell("Abandon Hope Cooler");
     }
 
     @Test
@@ -56,6 +56,10 @@ public class TestCell {
 
     @Test
     public void testCanFeedPrisoners() {
-
+        cell.addPrisoners(prisoner1);
+        cell.addPrisoners(prisoner2);
+        cell.addPrisoners(prisoner3);
+        cell.feedPrisoners();
+        assertEquals(0, cell.getHungryPrisonerCount());
     }
 }

@@ -11,7 +11,7 @@ import static junit.framework.Assert.assertEquals;
 
 public class TestPrisoner {
 
-    Prisoner prisoner;
+    private Prisoner prisoner;
 
     @Before
     public void before() {
@@ -21,5 +21,10 @@ public class TestPrisoner {
     @Test
     public void canSpeak() {
         assertEquals("Hello...does anyone have a spoon?", prisoner.speak());
+    }
+
+    @Test
+    public void canFeedPrisoner() {
+
     }
 }

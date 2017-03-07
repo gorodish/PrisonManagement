@@ -29,4 +29,8 @@ public class Prisoner extends Person {
     public void eat() {
         this.isHungry = false;
     }
+
+    public boolean isHungry() {
+        return isHungry;
+    }
 }

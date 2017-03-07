@@ -10,8 +10,9 @@ public class Cell {
 
     private String name;
     private ArrayList<Prisoner> prisoners;
+    private int count = 0;
 
-    public Cell(String name, ArrayList<Prisoner> prisoners) {
+    public Cell(String name) {
         this.name = name;
         this.prisoners = new ArrayList<Prisoner>();
 
@@ -29,10 +30,20 @@ public class Cell {
         this.prisoners.remove(0);
     }
 
-    private void feedPrisoners() {
+    public void feedPrisoners() {
         for(Prisoner prisoner : prisoners) {
             prisoner.eat();
         }
+    }
+
+    public int getHungryPrisonerCount() {
+        int count = 0;
+        for(Prisoner prisoner : prisoners) {
+            if(prisoner.isHungry()) {
+                count ++ ;
+            }
+        }
+        return count;
     }
 }
 
