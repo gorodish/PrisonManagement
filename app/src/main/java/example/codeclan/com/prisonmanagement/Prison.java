@@ -11,21 +11,16 @@ import java.util.ArrayList;
 public class Prison {
 
     public String name;
-    private ArrayList<Cell> cells = new ArrayList<Cell>();
-    private Cell cell;
+    private ArrayList<Cell> cells;
+    private ArrayList<Prisoner> prisoners;
 
     public Prison(String name, ArrayList<Cell> cells) {
         this.name = name;
+        this.cells = new ArrayList<Cell>();
     }
 
     public String getName() {
         return this.name;
-    }
-
-    public void feedPrisoners(){
-        for(Cell cell : cells) {
-            cell.feedPrisoners();
-        }
     }
 
     public int countCells() {

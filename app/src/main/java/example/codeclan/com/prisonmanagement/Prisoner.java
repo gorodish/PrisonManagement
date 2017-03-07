@@ -10,6 +10,8 @@ public class Prisoner extends Person {
     private String name;
     private SecurityLevel securityLevel;
     private boolean isHungry;
+    private boolean isHighRisk;
+
 
     public Prisoner (String name, SecurityLevel securityLevel, Boolean isHungry) {
         this.name = name;
@@ -32,5 +34,9 @@ public class Prisoner extends Person {
 
     public boolean isHungry() {
         return isHungry;
+    }
+
+    public boolean isHighRisk() {
+        return securityLevel == SecurityLevel.HIGH;
     }
 }
