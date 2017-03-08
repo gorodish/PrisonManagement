@@ -12,7 +12,7 @@ public class Prison {
 
     public String name;
     private ArrayList<Cell> cells;
-    private ArrayList<Prisoner> prisoners;
+    private Cell cell;
 
     public Prison(String name, ArrayList<Cell> cells) {
         this.name = name;
@@ -34,4 +34,9 @@ public class Prison {
     public void removeCell() {
         this.cells.remove(0);
     }
+
+//    public Prisoner transferPrisoner() {
+//        Prisoner prisoner = cell.removePrisoners();
+//        return prisoner;
+//    }
 }

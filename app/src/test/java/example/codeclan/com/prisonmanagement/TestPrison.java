@@ -13,13 +13,15 @@ import static junit.framework.Assert.assertEquals;
 
 public class TestPrison {
 
-    Prison prison;
+    Prison prison1;
+    Prison prison2;
     private ArrayList<Cell> cells;
     Cell cell1;
     Cell cell2;
     Cell cell3;
     Cell cell4;
     Cell cell5;
+    private ArrayList<Prisoner> prisoners;
     Prisoner prisoner1;
     Prisoner prisoner2;
     Prisoner prisoner3;
@@ -27,44 +29,39 @@ public class TestPrison {
 
     @Before
     public void before() {
-        cell1 = new Cell("The Exterminator");
-        cell2 = new Cell("The Black Hole");
-        cell3 = new Cell("Brick View");
-        cell4 = new Cell("The Exterminator");
-        cell5 = new Cell("The Clink");
-        prison = new Prison("Wits End", cells);
-        prison.addCell(cell1);
-        prison.addCell(cell2);
-        prison.addCell(cell3);
-        prison.addCell(cell4);
-
-
-        prisoner1 = new Prisoner("Murray 'Fingers' McQuarrie", SecurityLevel.HIGH, true);
-        prisoner2 = new Prisoner("Daniel 'The Strangler' McDonald", SecurityLevel.LOW, true);
-        prisoner3 = new Prisoner("Ryan 'Knuckles' Sinclair", SecurityLevel.LOW, true);
-        prisoner4 = new Prisoner("Ellen 'Cat Burglar' Grafton", SecurityLevel.MEDIUM, false);
+        prison1 = new Prison("Wits End", cells);
+        prison2 = new Prison("Bleak Towers", cells);
+        cell1 = new Cell("The Exterminator", prisoners);
+        cell2 = new Cell("The Black Hole", prisoners);
+        cell3 = new Cell("Brick View", prisoners);
+        cell4 = new Cell("The Exterminator", prisoners);
+        cell5 = new Cell("The Clink", prisoners);
+        prison1.addCell(cell1);
+        prison1.addCell(cell2);
+        prison1.addCell(cell3);
+        prison2.addCell(cell4);
 
     }
 
     @Test
     public void testPrisonName() {
-        assertEquals("Wits End", prison.name);
+        assertEquals("Wits End", prison1.name);
     }
 
     @Test
     public void testAddCell() {
-//        prison.addCell(cell3);
-        prison.addCell(cell5);
-        assertEquals(5, prison.countCells());
+        prison1.addCell(cell5);
+        assertEquals(4, prison1.countCells());
     }
 
     @Test
     public void testRemoveCell() {
-//        prison.addCell(cell1);
-//        prison.addCell(cell2);
-//        prison.addCell(cell3);
-//        prison.addCell(cell4);
-        prison.removeCell();
-        assertEquals(3, prison.countCells());
+        prison1.removeCell();
+        assertEquals(2, prison1.countCells());
+    }
+
+    @Test
+    public void testTransferPrisoner() {
+
     }
 }

@@ -14,12 +14,12 @@ import static junit.framework.Assert.assertEquals;
 public class TestCell {
 
     Cell cell;
+    ArrayList<Prisoner> prisoners;
     Prisoner prisoner1;
     Prisoner prisoner2;
     Prisoner prisoner3;
     Prisoner prisoner4;
     Prisoner prisoner5;
-    ArrayList<Prisoner> prisoners;
 
     @Before
     public void before() {
@@ -27,10 +27,9 @@ public class TestCell {
         prisoner1 = new Prisoner("Murray 'Fingers' McQuarrie", SecurityLevel.HIGH, true);
         prisoner2 = new Prisoner("Daniel 'The Strangler' McDonald", SecurityLevel.LOW, true);
         prisoner3 = new Prisoner("Ryan 'Knuckles' Sinclair", SecurityLevel.LOW, true);
-        prisoner4 = new Prisoner("Ellen 'Cat Burglar' Grafton", SecurityLevel.MEDIUM, false);
+        prisoner4 = new Prisoner("Ellen 'Cat Burglar' Grafton", SecurityLevel.LOW, false);
         prisoner5 = new Prisoner("Jodie 'Acid Bath' Garden", SecurityLevel.LOW, false);
-
-        cell = new Cell("Abandon Hope Cooler");
+        cell = new Cell("Abandon Hope Cooler", prisoners);
     }
 
     @Test
@@ -49,8 +48,8 @@ public class TestCell {
 
     @Test
     public void testCannotAddHighRiskPrisoners() {
-        cell.addPrisoners(prisoner2);
         cell.addPrisoners(prisoner1);
+        cell.addPrisoners(prisoner2);
         cell.addPrisoners(prisoner3);
         cell.addPrisoners(prisoner4);
         assertEquals(3, cell.countPrisoners());
@@ -59,7 +58,7 @@ public class TestCell {
     @Test
     public void testCanRemovePrisoners() {
         cell.addPrisoners(prisoner2);
-        cell.addPrisoners(prisoner1);
+        cell.addPrisoners(prisoner5);
         cell.addPrisoners(prisoner3);
         cell.addPrisoners(prisoner4);
         cell.removePrisoners();

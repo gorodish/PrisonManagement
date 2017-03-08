@@ -3,6 +3,8 @@ package example.codeclan.com.prisonmanagement;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static junit.framework.Assert.assertEquals;
 
 /**
@@ -11,12 +13,13 @@ import static junit.framework.Assert.assertEquals;
 
 public class TestPrisoner {
 
-    private Prison prison;
-    Prisoner prisoner1;
-    Prisoner prisoner2;
-    Prisoner prisoner3;
-    Prisoner prisoner4;
+    private Prisoner prisoner1;
+    private Prisoner prisoner2;
+    private Prisoner prisoner3;
+    private Prisoner prisoner4;
+    private Prisoner prisoner5;
     Cell cell;
+    private ArrayList<Prisoner> prisoners;
 
     @Before
     public void before() {
@@ -24,7 +27,8 @@ public class TestPrisoner {
         prisoner2 = new Prisoner("Daniel 'The Strangler' McDonald", SecurityLevel.LOW, true);
         prisoner3 = new Prisoner("Ryan 'Knuckles' Sinclair", SecurityLevel.LOW, true);
         prisoner4 = new Prisoner("Ellen 'Cat Burglar' Grafton", SecurityLevel.MEDIUM, false);
-        cell = new Cell("The Exterminator");
+        prisoner5 = new Prisoner("Murray 'Fingers' McQuarrie", SecurityLevel.HIGH, true);
+        cell = new Cell("The Exterminator", prisoners);
     }
 
     @Test
@@ -40,5 +44,11 @@ public class TestPrisoner {
         cell.addPrisoners(prisoner4);
         cell.feedPrisoners();
         assertEquals(0, cell.getHungryPrisonerCount());
+    }
+
+    @Test
+    public void testPrisonerIsHighRisk() {
+        cell.addPrisoners(prisoner5);
+        assertEquals(true, prisoner5.isHighRisk());
     }
 }

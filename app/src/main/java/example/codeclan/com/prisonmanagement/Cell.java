@@ -10,10 +10,8 @@ public class Cell {
 
     private String name;
     private ArrayList<Prisoner> prisoners;
-    private int count = 0;
-    private Prisoner prisoner;
 
-    public Cell(String name) {
+    public Cell(String name, ArrayList<Prisoner> prisoners) {
         this.name = name;
         this.prisoners = new ArrayList<Prisoner>();
     }
@@ -23,7 +21,7 @@ public class Cell {
     }
 
     public String addPrisoners(Prisoner addedPrisoner) {
-        if(this.countPrisoners() < 4 && !addedPrisoner.isHighRisk() ) {
+        if((this.countPrisoners() < 4) && addedPrisoner.isLowRisk()) {
             this.prisoners.add(addedPrisoner);
         }
         return "Limit reached";
